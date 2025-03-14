@@ -4,14 +4,25 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.5",
     "@eslint/js": "^9.22.0",
+    "@storybook/addon-essentials": "^8.6.4",
+    "@storybook/addon-interactions": "^8.6.4",
+    "@storybook/addon-onboarding": "^8.6.4",
+    "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
+    "@storybook/blocks": "^8.6.4",
+    "@storybook/react": "^8.6.4",
+    "@storybook/react-webpack5": "^8.6.4",
+    "@storybook/test": "^8.6.4",
     "@types/node": "^22.13.10",
     "@types/react-dom": "^19.0.4",
     "@types/webpack": "^5.28.5",
@@ -19,12 +30,14 @@
     "eslint": "^9.22.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-storybook": "^0.11.4",
     "globals": "^16.0.0",
     "html-webpack-plugin": "^5.6.3",
     "prettier": "^3.5.3",
+    "storybook": "^8.6.4",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.2",
+    "typescript": "^5.7.3",
     "typescript-eslint": "^8.26.1",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",
@@ -33,5 +46,10 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
