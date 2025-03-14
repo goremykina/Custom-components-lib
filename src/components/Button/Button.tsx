@@ -7,12 +7,8 @@ export interface ButtonProps {
     className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({className}) => {
-    return (
-        <button className={className}>
-            click
-        </button>
-    );
+const Button: React.FC<ButtonProps> = ({ className }) => {
+    return <button className={className}>click</button>;
 };
 
 export default Button;

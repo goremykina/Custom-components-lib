@@ -2,10 +2,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import path from 'path';
 
-
 const config: webpack.Configuration = {
     mode: 'development',
-    entry: path.resolve(__dirname,'./src/index.ts'),
+    entry: path.resolve(__dirname, './src/index.ts'),
     module: {
         rules: [
             {
@@ -22,9 +21,11 @@ const config: webpack.Configuration = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.bundle.js',
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, `./src/index.html`),
-    })],
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, `./src/index.html`),
+        }),
+    ],
 };
 
 export default config;
