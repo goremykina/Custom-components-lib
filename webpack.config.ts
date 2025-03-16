@@ -1,4 +1,3 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import path from 'path';
 
@@ -12,6 +11,26 @@ const config: webpack.Configuration = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.s([ac])ss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            esModule: true,
+                            importLoaders: 1,
+                            modules: {
+                                namedExport: false,
+                                auto: /\.module\.scss$/,
+                                localIdentName:
+                                    '[name]__[local]--[hash:base64:5]',
+                            },
+                        },
+                    },
+                    'sass-loader',
+                ],
+            },
         ],
     },
     resolve: {
@@ -21,11 +40,6 @@ const config: webpack.Configuration = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.bundle.js',
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, `./src/index.html`),
-        }),
-    ],
 };
 
 export default config;
