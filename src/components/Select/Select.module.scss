@@ -1,0 +1,38 @@
+.select-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  //&:after {
+  //  content: "";
+  //  position: absolute;
+  //  top: 50%;
+  //  right: 16px;
+  //  width: 10px;
+  //  height: 10px;
+  //  pointer-events: none;
+  //  transform: translateY(-50%) rotate(45deg);
+  //  border-right: 2px solid #444950;
+  //  border-bottom: 2px solid #444950;
+  //}
+}
+
+.select {
+  width: 220px;
+  padding: 15px;
+  border: 1px solid rgba(154, 159, 179, 0.8);
+  background: transparent;
+  border-radius: 5px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  appearance: none;
+  color: #444950;
+
+  &:hover {
+    border: 1.5px solid #444950;
+  }
+
+  &:focus {
+    border: 1.5px solid #1565c0;
+  }
+}
