@@ -30,6 +30,8 @@ export const Outlined: Story = {
         variant: 'outlined',
         placeholder: '',
         value: '',
+        error: true,
+        helperText: 'Incorrect entry',
     },
 };
 

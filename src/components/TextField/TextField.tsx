@@ -10,6 +10,7 @@ export interface TextInputProps {
     error?: boolean;
     helperText?: string;
     label: string;
+    errorLabel: string;
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -21,10 +22,11 @@ const TextField: React.FC<TextInputProps> = ({
     placeholder,
     required,
     readOnly,
-    //error,
+    error,
     value,
     label,
     onChange,
+    errorLabel = 'Error',
     helperText,
 }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -44,14 +46,16 @@ const TextField: React.FC<TextInputProps> = ({
         <div className={`${styles.inputContainer} ${getVariantClass(variant)}`}>
             {!isFocused && value ? null : (
                 <label
-                    className={`${styles.label} ${isFocused ? styles.labelFocus : styles.labelNoFocus}`}
+                    className={`${styles.label} ${isFocused ? styles.labelFocus : styles.labelNoFocus}
+                    ${error && isFocused ? styles.errorLabel : ''}
+                    `}
                 >
-                    {label}
+                    {error ? errorLabel : label}
                 </label>
             )}
 
             <input
-                className={styles.input}
+                className={`${styles.input} ${error || (error && isFocused) ? styles.error : ''}`}
                 type={type}
                 required={required}
                 readOnly={readOnly}
@@ -61,7 +65,11 @@ const TextField: React.FC<TextInputProps> = ({
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
             />
-            <span>{helperText}</span>
+            <span
+                className={`${error ? styles.errorText : styles.noErrorText}`}
+            >
+                {helperText}
+            </span>
         </div>
     );
 };
