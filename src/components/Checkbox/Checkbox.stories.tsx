@@ -18,22 +18,36 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+    render: (args) => {
+        return <Checkbox {...args} />;
+    },
     args: {
         label: 'Click',
         disabled: false,
+        value: '',
+        color: 'pink',
     },
 };
 
 export const Size: Story = {
+    render: (args) => {
+        return <Checkbox {...args} />;
+    },
     args: {
         label: 'Click',
         disabled: false,
+        value: '',
+        size: 'small',
     },
 };
 
 export const Checked: Story = {
+    render: (args) => {
+        return <Checkbox {...args} />;
+    },
     args: {
-        label: 'Click',
-        disabled: true,
+        label: '',
+        checked: true,
+        value: '',
     },
 };

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from './Checkbox.module.scss';
 
 export interface CheckboxProps {
@@ -8,16 +8,25 @@ export interface CheckboxProps {
     size?: 'small' | 'medium' | 'large';
     color?: string;
     label: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
     label,
-    checked,
+    checked = false,
     disabled,
     color,
     size,
     required,
 }) => {
+    const [isChecked, setIsChecked] = useState(checked);
+
+    const handleClick = () => {
+        const newChecked = !isChecked;
+        setIsChecked(newChecked);
+    };
+
     const getSizeClass = useCallback((size: string) => {
         switch (size) {
             case 'small':
@@ -51,9 +60,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
             >
                 <input
                     type={'checkbox'}
-                    checked={checked}
+                    checked={isChecked}
                     disabled={disabled}
                     required={required}
+                    onChange={handleClick}
                 ></input>
                 <span
                     className={`${styles.checkmark} ${getSizeClass(size)} ${getColor(color)}`}
