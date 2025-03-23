@@ -30,6 +30,31 @@ export const Default: Story = {
         );
     },
     args: {
+        label: 'Fruits',
+        value: '',
+        options: ['', 'Apple', 'Kivi', 'Banana', 'Orange', 'Mango'],
+    },
+};
+
+export const Checkmarks: Story = {
+    render: (args) => {
+        const [selectedValue, setSelectedValue] = useState(args.value || '');
+
+        useEffect(() => {
+            setSelectedValue(args.value);
+        }, [args.value]);
+
+        return (
+            <Select
+                {...args}
+                value={selectedValue}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    setSelectedValue(e.target.value)
+                }
+            />
+        );
+    },
+    args: {
         label: 'Choose an option',
         value: '',
         options: ['', 'Apple', 'Kivi', 'Banana', 'Orange', 'Mango'],

@@ -7,19 +7,33 @@ export interface SelectProps {
     options: string[];
     label?: string;
     onFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
+    disabled: boolean;
 }
 
-const Select: React.FC<SelectProps> = ({ value, label, onChange, options }) => {
+const Select: React.FC<SelectProps> = ({
+    value,
+    label,
+    onChange,
+    options,
+    disabled,
+}) => {
     const [isFocused, setIsFocused] = useState(false);
 
     return (
         <div className={styles.selectContainer}>
-            <label>{label}</label>
+            <label
+                className={`${styles.label} ${isFocused || value ? styles.labelUp : ''} ${isFocused ? styles.labelFocus : ''}`}
+            >
+                {label}
+            </label>
+
             <select
                 className={styles.select}
-                value={value}
+                value={value === ' ' ? label : value}
                 onChange={onChange}
                 onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+                disabled={disabled}
             >
                 {options.map((option, index) => (
                     <option key={index} value={option}>

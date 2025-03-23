@@ -2,31 +2,25 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  //&:after {
-  //  content: "";
-  //  position: absolute;
-  //  top: 50%;
-  //  right: 16px;
-  //  width: 10px;
-  //  height: 10px;
-  //  pointer-events: none;
-  //  transform: translateY(-50%) rotate(45deg);
-  //  border-right: 2px solid #444950;
-  //  border-bottom: 2px solid #444950;
-  //}
+  position: relative;
 }
 
 .select {
   width: 220px;
   padding: 15px;
   border: 1px solid rgba(154, 159, 179, 0.8);
-  background: transparent;
+  background-color: transparent;
   border-radius: 5px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   appearance: none;
   color: #444950;
+  cursor: pointer;
+
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
 
   &:hover {
     border: 1.5px solid #444950;
@@ -35,4 +29,25 @@
   &:focus {
     border: 1.5px solid #1565c0;
   }
+}
+
+.label {
+  color: #444950;
+  position: absolute;
+  transform: translateY(-50%);
+  left: 10px;
+  top: 50%;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: font-size 150ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, top 150ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+
+.label-up {
+  top: 0;
+  font-size: 13px;
+  background: white;
+}
+
+.label-focus {
+  color: #1565c0;
 }
