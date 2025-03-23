@@ -10,7 +10,6 @@ export interface TextInputProps {
     error?: boolean;
     helperText?: string;
     label: string;
-    errorLabel: string;
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -26,7 +25,6 @@ const TextField: React.FC<TextInputProps> = ({
     value,
     label,
     onChange,
-    errorLabel = 'Error',
     helperText,
 }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -44,27 +42,25 @@ const TextField: React.FC<TextInputProps> = ({
 
     return (
         <div className={`${styles.inputContainer} ${getVariantClass(variant)}`}>
-            {!isFocused && value ? null : (
+            <div className={styles.inputInnerContainer}>
                 <label
-                    className={`${styles.label} ${isFocused ? styles.labelFocus : styles.labelNoFocus}
-                    ${error && isFocused ? styles.errorLabel : ''}
-                    `}
+                    className={`${styles.label} ${isFocused || value ? styles.labelUp : ''} ${isFocused ? styles.labelFocus : ''}  ${error ? styles.errorLabel : ''}`}
                 >
-                    {error ? errorLabel : label}
+                    {label}
                 </label>
-            )}
 
-            <input
-                className={`${styles.input} ${error || (error && isFocused) ? styles.error : ''}`}
-                type={type}
-                required={required}
-                readOnly={readOnly}
-                placeholder={placeholder}
-                value={value}
-                onChange={onChange}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
-            />
+                <input
+                    className={`${styles.input} ${error || (error && isFocused) ? styles.error : ''}`}
+                    type={type}
+                    required={required}
+                    readOnly={readOnly}
+                    placeholder={placeholder}
+                    value={value}
+                    onChange={onChange}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
+                />
+            </div>
             <span
                 className={`${error ? styles.errorText : styles.noErrorText}`}
             >
