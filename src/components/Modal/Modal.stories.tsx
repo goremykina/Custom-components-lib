@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import styles from './Modal.module.scss';
 
 import Modal from './Modal';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const meta: Meta<typeof Modal> = {
     title: 'Modal',
@@ -14,7 +14,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: (args) => {
-        const [isOpen, setIsOpen] = useState(false);
+        const [isOpen, setIsOpen] = useState(args.open || false);
+
+        useEffect(() => {
+            setIsOpen(args.open);
+        }, [args.open]);
+        console.log(isOpen);
 
         return (
             <>
@@ -33,10 +38,13 @@ export const Default: Story = {
         );
     },
     args: {
+        open: false,
         title: 'Modal',
-        children: [
-            React.createElement('h2', {}, 'Header'),
-            React.createElement('p', {}, 'This is a modal window'),
-        ],
+        children: (
+            <>
+                <h2>Header</h2>
+                <p>This is a modal window</p>
+            </>
+        ),
     },
 };

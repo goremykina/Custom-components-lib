@@ -9,9 +9,13 @@ export interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ children, title, open, onClose }) => {
+    const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+    };
+
     return open ? (
         <div className={style.modalWrapper} onClick={onClose}>
-            <div className={style.modalContent}>
+            <div className={style.modalContent} onClick={handleModalClick}>
                 <div className={style.modalHeader}>
                     <h3 className={style.modalTitle}>{title}</h3>
                     <button
