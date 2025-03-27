@@ -2,7 +2,7 @@ import React from 'react';
 import './Spinner.scss';
 
 const Spinner = () => {
-    return <span className="spinner"></span>;
+    return <span data-testid="spinner" className="spinner"></span>;
 };
 
 export default Spinner;
