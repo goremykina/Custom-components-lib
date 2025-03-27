@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import styles from './Select.module.scss';
 
 export interface SelectProps {
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    options: string[];
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+    options?: string[];
     label?: string;
-    onFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
-    disabled: boolean;
+    onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+    disabled?: boolean;
 }
 
 const Select: React.FC<SelectProps> = ({

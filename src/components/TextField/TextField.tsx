@@ -2,17 +2,17 @@ import React, { useCallback, useState } from 'react';
 import styles from './TextField.module.scss';
 
 export interface TextInputProps {
-    variant: 'outlined' | 'filled' | 'standard';
-    type: 'text' | 'password' | 'email';
-    required: boolean;
-    readOnly: boolean;
+    variant?: 'outlined' | 'filled' | 'standard';
+    type?: 'text' | 'password' | 'email';
+    required?: boolean;
+    readOnly?: boolean;
     placeholder?: string;
     error?: boolean;
     helperText?: string;
-    label: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
+    label?: string;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 const TextField: React.FC<TextInputProps> = ({

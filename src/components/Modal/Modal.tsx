@@ -14,12 +14,13 @@ const Modal: React.FC<ModalProps> = ({ children, title, open, onClose }) => {
     };
 
     return open ? (
-        <div className={style.modalWrapper} onClick={onClose}>
-            <div className={style.modalContent} onClick={handleModalClick}>
+        <div className={style.modalWrapper} data-testid="modal-wrapper" onClick={onClose}>
+            <div className={style.modalContent} data-testid="modal-content" onClick={handleModalClick}>
                 <div className={style.modalHeader}>
                     <h3 className={style.modalTitle}>{title}</h3>
                     <button
                         className={style.modalButtonClose}
+                        data-testid="close-button"
                         onClick={onClose}
                     >
                         <svg

@@ -4,12 +4,12 @@ import styles from './Checkbox.module.scss';
 export interface CheckboxProps {
     checked?: boolean;
     disabled?: boolean;
-    required: boolean;
+    required?: boolean;
     size?: 'small' | 'medium' | 'large';
     color?: string;
-    label: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    label?: string;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
@@ -19,12 +19,21 @@ const Checkbox: React.FC<CheckboxProps> = ({
     color,
     size,
     required,
+    onChange
 }) => {
     const [isChecked, setIsChecked] = useState(checked);
 
     const handleClick = () => {
         const newChecked = !isChecked;
         setIsChecked(newChecked);
+
+        if (onChange) {
+            onChange({
+                target: {
+                    checked: newChecked,
+                },
+            } as React.ChangeEvent<HTMLInputElement>);
+        }
     };
 
     const getSizeClass = useCallback((size: string) => {
