@@ -2,19 +2,25 @@ import React, { useCallback, useState } from 'react';
 import styles from './Switch.module.scss';
 
 export interface SwitchProps {
-    checked: boolean;
-    disabled: boolean;
+    checked?: boolean;
+    disabled?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     size?: 'small' | 'medium' | 'large';
-    color: string;
+    color?: string;
 }
 
-const Switch: React.FC<SwitchProps> = ({ checked, disabled, size, color }) => {
+const Switch: React.FC<SwitchProps> = ({ checked, disabled, size, color, onChange }) => {
     const [isChecked, setIsChecked] = useState(checked);
 
-    const handleClick = () => {
+    const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (disabled) return;
+
         const newChecked = !isChecked;
         setIsChecked(newChecked);
+
+        if (onChange) {
+            onChange(e);
+        }
     };
 
     const getSizeClass = useCallback((size: string) => {

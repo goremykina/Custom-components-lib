@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Switch from './Switch';
+import React from 'react';
 
 const meta: Meta<typeof Switch> = {
     title: 'Switch',
@@ -19,7 +20,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: (args) => {
-        return <Switch {...args} />;
+        return (
+            <Switch
+                onChange={function (
+                    e: React.ChangeEvent<HTMLInputElement>,
+                ): void {
+                    throw new Error('Function not implemented.');
+                }}
+                {...args}
+            />
+        );
     },
     args: {
         disabled: false,
@@ -30,7 +40,16 @@ export const Default: Story = {
 
 export const Disabled: Story = {
     render: (args) => {
-        return <Switch {...args} />;
+        return (
+            <Switch
+                onChange={function (
+                    e: React.ChangeEvent<HTMLInputElement>,
+                ): void {
+                    throw new Error('Function not implemented.');
+                }}
+                {...args}
+            />
+        );
     },
     args: {
         disabled: true,
@@ -39,7 +58,16 @@ export const Disabled: Story = {
 };
 export const DefaultChecked: Story = {
     render: (args) => {
-        return <Switch {...args} />;
+        return (
+            <Switch
+                onChange={function (
+                    e: React.ChangeEvent<HTMLInputElement>,
+                ): void {
+                    throw new Error('Function not implemented.');
+                }}
+                {...args}
+            />
+        );
     },
     args: {
         disabled: false,
