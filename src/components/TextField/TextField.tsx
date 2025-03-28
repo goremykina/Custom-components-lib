@@ -44,13 +44,19 @@ const TextField: React.FC<TextInputProps> = ({
         <div className={`${styles.inputContainer} ${getVariantClass(variant)}`}>
             <div className={styles.inputInnerContainer}>
                 <label
-                    className={`${styles.label} ${isFocused || value ? styles.labelUp : ''} ${isFocused ? styles.labelFocus : ''}  ${error ? styles.errorLabel : ''}`}
+                    htmlFor="text-field"
+                    className={`
+                    ${styles.label} 
+                    ${isFocused || value ? styles.labelUp : ''} 
+                    ${isFocused ? styles.labelFocus : ''}  
+                    ${error ? styles.errorLabel : ''}`}
                 >
                     {label}
                 </label>
 
                 <input
                     className={`${styles.input} ${error || (error && isFocused) ? styles.error : ''}`}
+                    id="text-field"
                     type={type}
                     required={required}
                     readOnly={readOnly}
