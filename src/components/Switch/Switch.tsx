@@ -23,7 +23,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, disabled, size, color, onChang
         }
     };
 
-    const getSizeClass = useCallback((size: string) => {
+    const getSizeClass = useCallback((size: string | undefined) => {
         switch (size) {
             case 'small':
                 return styles.small;
@@ -34,7 +34,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, disabled, size, color, onChang
         }
     }, []);
 
-    const getColor = useCallback((color: string) => {
+    const getColor = useCallback((color: string | undefined) => {
         switch (color) {
             case 'orange':
                 return styles.switchOrange;

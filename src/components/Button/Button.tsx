@@ -44,7 +44,7 @@ const Button: React.FC<ButtonProps> = ({
         }
     }, []);
 
-    const getColor = useCallback((color: string) => {
+    const getColor = useCallback((color: string | undefined) => {
         switch (color) {
             case 'success':
                 return styles.buttonSuccess;

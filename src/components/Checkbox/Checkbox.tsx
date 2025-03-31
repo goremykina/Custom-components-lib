@@ -36,7 +36,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         }
     };
 
-    const getSizeClass = useCallback((size: string) => {
+    const getSizeClass = useCallback((size: string | undefined) => {
         switch (size) {
             case 'small':
                 return styles.checkboxSmall;
@@ -47,7 +47,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         }
     }, []);
 
-    const getColor = useCallback((color: string) => {
+    const getColor = useCallback((color: string | undefined) => {
         switch (color) {
             case 'green':
                 return styles.checkboxGreen;

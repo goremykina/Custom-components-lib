@@ -31,7 +31,9 @@ export const Default: Story = {
                 </button>
                 <Modal
                     {...args}
+                    title={args.title}
                     open={isOpen}
+                    children={args.children}
                     onClose={() => setIsOpen(false)}
                 />
             </>

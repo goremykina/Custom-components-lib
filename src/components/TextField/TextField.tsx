@@ -29,7 +29,7 @@ const TextField: React.FC<TextInputProps> = ({
 }) => {
     const [isFocused, setIsFocused] = useState(false);
 
-    const getVariantClass = useCallback((variant: string) => {
+    const getVariantClass = useCallback((variant: string | undefined) => {
         switch (variant) {
             case 'filled':
                 return styles.inputFilled;

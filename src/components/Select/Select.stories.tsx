@@ -23,6 +23,7 @@ export const Default: Story = {
             <Select
                 {...args}
                 value={selectedValue}
+                options={args.options}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                     setSelectedValue(e.target.value)
                 }
@@ -47,6 +48,7 @@ export const Checkmarks: Story = {
         return (
             <Select
                 {...args}
+                options={args.options}
                 value={selectedValue}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                     setSelectedValue(e.target.value)

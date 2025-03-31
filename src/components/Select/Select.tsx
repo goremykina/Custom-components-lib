@@ -4,7 +4,7 @@ import styles from './Select.module.scss';
 export interface SelectProps {
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    options?: string[];
+    options: string[];
     label?: string;
     onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
     disabled?: boolean;
