@@ -49,6 +49,7 @@ const config: webpack.Configuration = {
             type: 'umd',
         },
     },
+    externals: ['react', 'react-dom'],
 };
 
 export default config;
