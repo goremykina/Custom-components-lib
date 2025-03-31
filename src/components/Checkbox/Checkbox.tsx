@@ -75,8 +75,17 @@ const Checkbox: React.FC<CheckboxProps> = ({
                     onChange={handleClick}
                 ></input>
                 <span
-                    className={`${styles.checkmark} ${getSizeClass(size)} ${getColor(color)}`}
-                ></span>
+                    className={`${styles.checkmarkContainer} ${getSizeClass(size)} ${getColor(color)}`}
+                >
+                    {isChecked ?
+                        <svg className={styles.checkmark}
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 -960 960 960"
+                             fill="#e3e3e3">
+                            <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+                        </svg>
+                        : ""}
+                </span>
                 {label}
             </label>
         </div>
