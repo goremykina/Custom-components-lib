@@ -8,7 +8,7 @@ export interface ButtonProps {
     size: 'small' | 'medium' | 'large';
     onClick?: () => void;
     label: string;
-    isDisabled: boolean;
+    isDisabled?: boolean;
     type?: 'button' | 'submit' | 'reset';
     isLoading?: boolean;
 }
