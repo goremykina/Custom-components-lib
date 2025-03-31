@@ -1,13 +1,17 @@
 {
-  "name": "custom-comp-lib",
+  "name": "@alinux/custom-components-lib",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --mode production",
+    "build:types": "npx tsc --emitDeclarationOnly -p tsconfig.prod.json",
+    "build": "npx webpack --mode production && npm run build:types",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest"
+    "test": "jest",
+    "publish": "npm publish --access public"
   },
   "keywords": [],
   "author": "",

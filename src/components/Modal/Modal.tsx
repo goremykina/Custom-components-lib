@@ -3,7 +3,7 @@ import style from './Modal.module.scss';
 
 export interface ModalProps {
     open: boolean;
-    onClose: () => void;
+    onClose?: () => void;
     children: React.ReactNode;
     title: string;
 }

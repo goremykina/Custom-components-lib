@@ -43,7 +43,11 @@ const config: webpack.Configuration = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.bundle.js',
+        filename: 'index.js',
+        clean: true,
+        library: {
+            type: 'umd',
+        },
     },
 };
 

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import styles from './Button.module.scss';
-import Spinner from '../spinner/Spinner';
+import Spinner from '../Spinner/Spinner';
 
 export interface ButtonProps {
     color?: 'success' | 'error';
