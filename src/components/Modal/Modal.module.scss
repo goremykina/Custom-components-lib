@@ -1,0 +1,59 @@
+.button-open {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  cursor: pointer;
+  color: #1565c0;
+  font-weight: bold;
+  font-size: 17px;
+  border: none;
+  width: 150px;
+  height: 50px;
+  background: none;
+
+  &:hover {
+    background: rgba(222, 239, 248, 0.66);
+    border-radius: 5px;
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 500px;
+  height: 300px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(154, 159, 179, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  position: relative;
+}
+
+.modal-button-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.modal-header {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.modal-title {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
